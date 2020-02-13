@@ -233,6 +233,11 @@ const elements = [
 	'li',
 	'figure',
 	'nav',
+	'header',
+	'section',
+	'aside',
+	'footer',
+	'main',
 ];
 
 const ExtendedBlockComponent = elements.reduce( ( acc, element ) => {

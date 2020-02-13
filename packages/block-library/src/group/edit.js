@@ -10,7 +10,7 @@ import {
 } from '@wordpress/block-editor';
 import { useRef } from '@wordpress/element';
 
-function GroupEdit( { hasInnerBlocks, className } ) {
+function GroupEdit( { attributes, hasInnerBlocks, className } ) {
 	const ref = useRef();
 	const {
 		TextColor,
@@ -26,13 +26,14 @@ function GroupEdit( { hasInnerBlocks, className } ) {
 			colorDetector: { targetRef: ref },
 		}
 	);
+	const Tag = Block[ attributes.tagName ];
 
 	return (
 		<>
 			{ InspectorControlsColorPanel }
 			<BackgroundColor>
 				<TextColor>
-					<Block.div className={ className } ref={ ref }>
+					<Tag className={ className } ref={ ref }>
 						<div className="wp-block-group__inner-container">
 							<InnerBlocks
 								renderAppender={
@@ -41,7 +42,7 @@ function GroupEdit( { hasInnerBlocks, className } ) {
 								}
 							/>
 						</div>
-					</Block.div>
+					</Tag>
 				</TextColor>
 			</BackgroundColor>
 		</>
