@@ -987,3 +987,15 @@ export function* insertAfterBlock( clientId ) {
 	);
 	yield insertDefaultBlock( {}, rootClientId, firstSelectedIndex + 1 );
 }
+
+export function toggleBlockFocus( clientId, isFocused ) {
+	if ( isFocused ) {
+		return {
+			type: 'FOCUS_BLOCK',
+			clientId,
+		};
+	}
+	return {
+		type: 'UNFOCUS_BLOCK',
+	};
+}
