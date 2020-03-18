@@ -2,6 +2,7 @@
  * WordPress dependencies
  */
 import { useCallback } from '@wordpress/element';
+import { useSelect } from '@wordpress/data';
 import {
 	BlockNavigationDropdown,
 	ToolSelector,
@@ -14,7 +15,6 @@ import {
 import { useEditorContext } from '../editor';
 import TemplateSwitcher from '../template-switcher';
 import SaveButton from '../save-button';
-import { useSelect } from '@wordpress/data';
 
 export default function Header() {
 	const { settings, setSettings } = useEditorContext();

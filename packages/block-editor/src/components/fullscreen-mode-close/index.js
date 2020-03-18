@@ -28,18 +28,18 @@ function FullscreenModeClose( { isActive } ) {
 		};
 	}, [] );
 
-	if ( ! isActive || ! postType ) {
+	if ( ! isActive ) {
 		return null;
 	}
+
+	const closeURL = postType ? addQueryArgs( 'edit.php', { post_type: postType.slug } ) : 'index.php';
 
 	return (
 		<Button
 			className="edit-post-fullscreen-mode-close"
 			icon={ wordPressLogo }
 			iconSize={ 36 }
-			href={ addQueryArgs( 'edit.php', {
-				post_type: postType.slug,
-			} ) }
+			href={ closeURL }
 			label={ get( postType, [ 'labels', 'view_items' ], __( 'Back' ) ) }
 		/>
 	);
