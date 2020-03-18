@@ -18,14 +18,12 @@ const wordPressLogo = (
 	</SVG>
 );
 
-function FullscreenModeClose() {
-	const { isActive, postType } = useSelect( ( select ) => {
+function FullscreenModeClose( { isActive } ) {
+	const { postType } = useSelect( ( select ) => {
 		const { getCurrentPostType } = select( 'core/editor' );
-		const { isFeatureActive } = select( 'core/edit-post' );
 		const { getPostType } = select( 'core' );
 
 		return {
-			isActive: isFeatureActive( 'fullscreenMode' ),
 			postType: getPostType( getCurrentPostType() ),
 		};
 	}, [] );

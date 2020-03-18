@@ -6,11 +6,11 @@ import { Button } from '@wordpress/components';
 import { PostPreviewButton, PostSavedState } from '@wordpress/editor';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { cog } from '@wordpress/icons';
+import { __experimentalFullscreenModeClose as FullscreenModeClose } from '@wordpress/block-editor';
 
 /**
  * Internal dependencies
  */
-import FullscreenModeClose from './fullscreen-mode-close';
 import HeaderToolbar from './header-toolbar';
 import MoreMenu from './more-menu';
 import PinnedPlugins from './pinned-plugins';
@@ -22,6 +22,7 @@ function Header() {
 		shortcut,
 		hasActiveMetaboxes,
 		isEditorSidebarOpened,
+		isFullscreenActive,
 		isPublishSidebarOpened,
 		isSaving,
 		getBlockSelectionStart,
@@ -34,6 +35,9 @@ function Header() {
 			isEditorSidebarOpened: select(
 				'core/edit-post'
 			).isEditorSidebarOpened(),
+			isFullscreenActive: select( 'core/edit-post' ).isFeatureActive(
+				'fullscreenMode'
+			),
 			isPublishSidebarOpened: select(
 				'core/edit-post'
 			).isPublishSidebarOpened(),
@@ -58,7 +62,7 @@ function Header() {
 
 	return (
 		<div className="edit-post-header">
-			<FullscreenModeClose />
+			<FullscreenModeClose isActive={ isFullscreenActive } />
 			<div className="edit-post-header__toolbar">
 				<HeaderToolbar />
 			</div>

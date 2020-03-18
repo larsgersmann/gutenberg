@@ -2,7 +2,11 @@
  * WordPress dependencies
  */
 import { useCallback } from '@wordpress/element';
-import { BlockNavigationDropdown, ToolSelector } from '@wordpress/block-editor';
+import {
+	BlockNavigationDropdown,
+	ToolSelector,
+	__experimentalFullscreenModeClose as FullscreenModeClose,
+} from '@wordpress/block-editor';
 
 /**
  * Internal dependencies
@@ -10,6 +14,7 @@ import { BlockNavigationDropdown, ToolSelector } from '@wordpress/block-editor';
 import { useEditorContext } from '../editor';
 import TemplateSwitcher from '../template-switcher';
 import SaveButton from '../save-button';
+import { useSelect } from '@wordpress/data';
 
 export default function Header() {
 	const { settings, setSettings } = useEditorContext();
@@ -40,8 +45,19 @@ export default function Header() {
 			} ) ),
 		[]
 	);
+
+	const { isFullscreenActive } = useSelect(
+		( select ) => ( {
+			isFullscreenActive: select( 'core/edit-site' ).isFeatureActive(
+				'fullscreenMode'
+			),
+		} ),
+		[]
+	);
+
 	return (
 		<div className="edit-site-header">
+			<FullscreenModeClose isActive={ isFullscreenActive } />
 			<div className="edit-site-header__toolbar">
 				<TemplateSwitcher
 					ids={ settings.templateIds }
