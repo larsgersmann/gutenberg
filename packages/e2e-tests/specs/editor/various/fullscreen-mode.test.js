@@ -23,7 +23,7 @@ describe( 'Fullscreen Mode', () => {
 		expect( isFullscreenEnabled ).toBe( true );
 
 		const fullscreenCloseButton = await page.$(
-			'.edit-post-fullscreen-mode-close'
+			'.block-editor-fullscreen-mode-close'
 		);
 
 		expect( fullscreenCloseButton ).not.toBeNull();

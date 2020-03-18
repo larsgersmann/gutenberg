@@ -32,11 +32,13 @@ function FullscreenModeClose( { isActive } ) {
 		return null;
 	}
 
-	const closeURL = postType ? addQueryArgs( 'edit.php', { post_type: postType.slug } ) : 'index.php';
+	const closeURL = postType
+		? addQueryArgs( 'edit.php', { post_type: postType.slug } )
+		: 'index.php';
 
 	return (
 		<Button
-			className="edit-post-fullscreen-mode-close"
+			className="block-editor-fullscreen-mode-close"
 			icon={ wordPressLogo }
 			iconSize={ 36 }
 			href={ closeURL }
