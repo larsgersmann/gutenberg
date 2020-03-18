@@ -22,9 +22,10 @@ function FullscreenModeClose( { isActive } ) {
 	const { postType } = useSelect( ( select ) => {
 		const { getCurrentPostType } = select( 'core/editor' );
 		const { getPostType } = select( 'core' );
+		const currentPostType = getCurrentPostType();
 
 		return {
-			postType: getPostType( getCurrentPostType() ),
+			postType: currentPostType ? getPostType( currentPostType ) : null,
 		};
 	}, [] );
 
