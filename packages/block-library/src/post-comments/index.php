@@ -15,17 +15,20 @@ function render_block_core_post_comments() {
 	if ( ! $post ) {
 		return '';
 	}
-	$comments = get_comments(
-		array(
-			'post_id' => $post->ID,
-		)
-	);
-	$output   = '';
-	// TODO: Handle nested comments.
-	foreach ( $comments as $comment ) {
-		$output .= '<p>' . $comment->comment_author . '<br />' . $comment->comment_content . '</p>';
-	}
-	return $output;
+
+	ob_start();
+	// This generates a deprecate message.
+	// Ideally this deprecation is removed.
+	comments_template( ABSPATH . WPINC . '/theme-compat/comments.php' );
+	ob_get_clean();
+
+	ob_start();
+	wp_list_comments(array(
+		'page' => $post->ID,
+	));
+	$comments = ob_get_clean();
+
+	return $comments;
 }
 
 /**
