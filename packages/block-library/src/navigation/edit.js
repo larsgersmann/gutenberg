@@ -276,6 +276,7 @@ function Navigation( {
 							__experimentalPassedProps={ {
 								className: 'wp-block-navigation__container',
 							} }
+							templateLock={ false }
 						/>
 					</Block.nav>
 				</BackgroundColor>
