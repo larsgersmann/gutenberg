@@ -22,7 +22,7 @@ import PinnedPlugins from './pinned-plugins';
 import PostPublishButtonOrToggle from './post-publish-button-or-toggle';
 import PreviewOptions from '../preview-options';
 
-function Header() {
+const Header = () => {
 	const {
 		getBlockSelectionStart,
 		hasActiveMetaboxes,
@@ -108,6 +108,6 @@ function Header() {
 			</div>
 		</div>
 	);
-}
+};
 
 export default Header;
