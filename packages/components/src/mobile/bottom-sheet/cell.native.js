@@ -287,6 +287,7 @@ class BottomSheetCell extends Component {
 						: accessibilityHint
 				}
 				disabled={ disabled }
+				activeOpacity={ Number( ! disabled ) }
 				onPress={ onCellPress }
 				style={ [ styles.clipToBounds, style ] }
 			>
