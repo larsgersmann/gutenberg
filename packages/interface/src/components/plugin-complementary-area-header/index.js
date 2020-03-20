@@ -12,8 +12,8 @@ import { close } from '@wordpress/icons';
 
 const PluginComplementaryAreaHeader = ( {
 	smallScreenTitle,
-	toggleComplementaryAreaShortcut,
-	closeComplementaryArea,
+	toggleShortcut,
+	onClose,
 	children,
 	className,
 	closeLabel,
