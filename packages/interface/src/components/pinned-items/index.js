@@ -21,7 +21,7 @@ function PinnedItemsSlot( { scope, className, ...props } ) {
 					<div
 						className={ classnames(
 							className,
-							'admin-screen-pinned-items'
+							'interface-pinned-items'
 						) }
 					>
 						{ fills }
