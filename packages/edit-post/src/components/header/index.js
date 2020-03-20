@@ -94,7 +94,7 @@ function Header() {
 					aria-expanded={ isEditorSidebarOpened }
 					shortcut={ shortcut }
 				/>
-				<PinnedItems.Slot scope="edit-post/complementary-area" />
+				<PinnedItems.Slot scope="edit-post" />
 				<MoreMenu />
 			</div>
 		</div>
